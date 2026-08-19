@@ -300,24 +300,17 @@ section[id]{scroll-margin-top:92px;}
   position:absolute;inset:0;
   background:linear-gradient(95deg, rgba(46,9,16,.96) 0%, rgba(77,14,21,.90) 44%, rgba(114,21,31,.55) 100%);
 }
-.final__in{position:relative;padding:104px 0;max-width:740px;}
+.final__in{position:relative;padding:104px 0;max-width:740px;margin:0 auto;text-align:center;}
 .final h2{font-size:clamp(29px,3.4vw,44px);letter-spacing:-.028em;}
-.ticks{margin-top:38px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 26px;max-width:640px;}
+.final__in .lead{margin-left:auto;margin-right:auto;}
+.final__in .cta-row{justify-content:center;}
+.ticks{margin:38px auto 0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 26px;max-width:640px;text-align:left;}
 .tick{display:flex;align-items:center;gap:13px;font-size:15.5px;color:rgba(255,255,255,.92);font-weight:500;}
 .tick__ico{
   width:38px;height:38px;border-radius:11px;flex:none;
   display:flex;align-items:center;justify-content:center;
   background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);color:var(--red);
 }
-
-/* ---------- Prova social (a preencher) ---------- */
-.proof{
-  margin-top:40px;padding:26px 28px;border-radius:18px;max-width:640px;
-  border:2px dashed rgba(255,138,128,.5);background:rgba(255,255,255,.05);
-  display:flex;gap:16px;align-items:flex-start;
-}
-.proof__ico{color:#FF8A80;flex:none;margin-top:2px;}
-.proof p{font-size:15px;line-height:1.6;color:rgba(255,255,255,.82);}
 
 /* ---------- Footer ---------- */
 .ftr{background:var(--ink);color:rgba(255,255,255,.72);padding:64px 0 40px;}
@@ -750,16 +743,6 @@ section[id]{scroll-margin-top:92px;}
           <!-- COPY -->Sem contrato longo
         </li>
       </ul>
-
-      <!-- ====================================================================
-           PROVA SOCIAL: bloco reservado, ainda sem dado real.
-           Assim que o cliente informar o número (ou um depoimento curto),
-           substituir todo o conteúdo deste bloco pelo texto definitivo.
-           ==================================================================== -->
-      <div class="proof rv">
-        <span class="proof__ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 10.5H6.2A1.7 1.7 0 0 1 4.5 8.8V7.2c0-.9.8-1.7 1.7-1.7h1.6c.9 0 1.7.8 1.7 1.7v4.3c0 2.2-1.3 3.9-3.4 4.8"/><path d="M18.5 10.5h-2.3a1.7 1.7 0 0 1-1.7-1.7V7.2c0-.9.8-1.7 1.7-1.7h1.6c.9 0 1.7.8 1.7 1.7v4.3c0 2.2-1.3 3.9-3.4 4.8"/></svg></span>
-        <p><!-- COPY -->[preencher] prova social forte aqui, ex.: Mais de X profissionais já recebem seus clientes na Biz Center, ou um depoimento curto de cliente real.</p>
-      </div>
 
       <div class="cta-row rv">
         <a class="btn btn--primary" href="https://wa.me/5562982518999?text=Oi%21%20Vi%20o%20espa%C3%A7o%20da%20Biz%20Center%20no%20Google%20e%20quero%20conhecer%20pessoalmente.%20Consegue%20me%20mostrar%20as%20salas%20livres%20e%20me%20ajudar%20a%20agendar%20uma%20visita%3F" target="_blank" rel="noopener">
