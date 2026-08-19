@@ -184,6 +184,10 @@ ul{list-style:none;margin:0;padding:0;}
 .closing p{margin-top:22px;max-width:50ch;color:rgba(255,255,255,.78);font-size:18px;}
 .closing .btn{margin-top:34px;}
 
+/* Mapa */
+.location-map{width:100%;height:480px;background:#E9E5E6;}
+.location-map iframe{display:block;width:100%;height:100%;border:0;filter:saturate(.86) contrast(.98);}
+
 /* Rodapé e WhatsApp */
 .footer{background:#19070B;color:rgba(255,255,255,.66);padding:58px 0 36px;}
 .footer__top{display:flex;align-items:center;justify-content:space-between;gap:36px;padding-bottom:34px;border-bottom:1px solid rgba(255,255,255,.1);}
@@ -252,6 +256,7 @@ ul{list-style:none;margin:0;padding:0;}
   .closing,.closing__content{min-height:540px;}
   .closing h2{font-size:clamp(40px,12vw,56px);}
   .closing .btn{width:100%;}
+  .location-map{height:420px;}
   .footer{padding-bottom:96px;}
   .footer__top,.footer__bottom{flex-direction:column;text-align:center;}
   .footer__contact{justify-content:center;}
@@ -459,6 +464,16 @@ ul{list-style:none;margin:0;padding:0;}
       <a class="btn btn--wa" href="https://wa.me/5562982518999?text=Oi%21%20Quero%20agendar%20uma%20visita%20e%20conhecer%20a%20Biz%20Center." target="_blank" rel="noopener">Agendar minha visita</a>
     </div>
   </section>
+
+  <section class="location-map" aria-label="Localização da Biz Center">
+    <iframe
+      src="https://www.google.com/maps?q=Rua%20119%2C%2064%20-%20Setor%20Sul%2C%20Goi%C3%A2nia%20-%20GO%2C%2074085-420&amp;output=embed"
+      title="Mapa da Biz Center em Goiânia"
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      allowfullscreen>
+    </iframe>
+  </section>
 </main>
 
 <footer class="footer">
@@ -466,6 +481,7 @@ ul{list-style:none;margin:0;padding:0;}
     <div class="footer__top">
       <img class="footer__brand" src="assets/img/logo-biz-center.svg" alt="Biz Center">
       <div class="footer__contact">
+        <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Rua%20119%2C%2064%2C%20Setor%20Sul%2C%20Goi%C3%A2nia%20-%20GO%2C%2074085-420" target="_blank" rel="noopener">Rua 119, nº 64 · Setor Sul · Goiânia - GO</a>
         <a href="https://wa.me/5562982518999" target="_blank" rel="noopener">WhatsApp: 62 98251-8999</a>
         <a href="mailto:contato@bizcenter.com.br">contato@bizcenter.com.br</a>
       </div>
