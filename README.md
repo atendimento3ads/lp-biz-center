@@ -8,7 +8,8 @@ Landing page estática da Biz Center, coworking em Goiânia, com foco em agendam
 .
 ├── index.html
 └── assets/
-    └── img/
+    ├── img/
+    └── video/
 ```
 
 A página usa HTML, CSS e JavaScript sem etapa de build. A única dependência externa é a fonte Figtree, carregada pelo Google Fonts.
@@ -22,6 +23,7 @@ O projeto está preparado para ser publicado diretamente pelo GitHub Pages a par
 - Tipografia: Figtree
 - Cor institucional: tons de vinho
 - CTAs do WhatsApp: `#25D366`
+- Hero em vídeo com arquivos otimizados para desktop e dispositivos móveis
 - Layout responsivo para desktop e dispositivos móveis
 
 ## Contato configurado
