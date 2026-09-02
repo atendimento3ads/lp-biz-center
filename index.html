@@ -3,6 +3,34 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Google Tag Manager e Google tag: carregamento otimizado após interação -->
+<script>
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments);}
+dataLayer.push({'gtm.start':Date.now(),event:'gtm.js'});
+gtag('js',new Date());
+gtag('config','G-1B8PRTN8Z8');
+(function(w,d){
+  let loaded=false;
+  function loadGoogleTracking(){
+    if(loaded) return;
+    loaded=true;
+    const gtm=d.createElement('script');
+    gtm.async=true;
+    gtm.src='https://www.googletagmanager.com/gtm.js?id=GTM-TXFXNMHF';
+    d.head.appendChild(gtm);
+    const googleTag=d.createElement('script');
+    googleTag.async=true;
+    googleTag.src='https://www.googletagmanager.com/gtag/js?id=GT-PBZHV5G';
+    d.head.appendChild(googleTag);
+  }
+  w.loadGoogleTracking=loadGoogleTracking;
+  ['pointerdown','touchstart','scroll','keydown'].forEach(eventName => {
+    w.addEventListener(eventName,loadGoogleTracking,{once:true,passive:true});
+  });
+  w.setTimeout(loadGoogleTracking,12000);
+})(window,document);
+</script>
 <title>Coworking em Goiânia e Salas por Hora | Biz Center</title>
 <meta name="description" content="Coworking em Goiânia, salas de reunião por hora, escritórios privativos e endereço comercial no Setor Sul. Conheça a Biz Center e agende uma visita.">
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
@@ -160,6 +188,7 @@ ul,ol{list-style:none;margin:0;padding:0;}
   transform:translateY(-160%);transition:transform .2s ease;
 }
 .skip-link:focus{transform:translateY(0);}
+.gtm-noscript{display:none;visibility:hidden;}
 .scroll-progress{
   position:fixed;inset:0 0 auto;z-index:90;height:3px;
   background:var(--coral);transform:scaleX(0);transform-origin:left;
@@ -486,6 +515,9 @@ ul,ol{list-style:none;margin:0;padding:0;}
 </style>
 </head>
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe class="gtm-noscript" src="https://www.googletagmanager.com/ns.html?id=GTM-TXFXNMHF" height="0" width="0" title="Google Tag Manager"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
 <a class="skip-link" href="#conteudo">Ir para o conteúdo principal</a>
 <div class="scroll-progress" aria-hidden="true"></div>
@@ -824,6 +856,17 @@ ul,ol{list-style:none;margin:0;padding:0;}
     window.addEventListener(eventName,loadHeroVideo,{once:true,passive:true});
   });
   window.setTimeout(loadHeroVideo,12000);
+
+  document.addEventListener('click',event => {
+    const leadLink=event.target.closest('a[href*="spar-hazel.vercel.app/l/biz-center-z43x"]');
+    if(!leadLink || typeof gtag!=='function') return;
+    gtag('event','generate_lead',{
+      event_category:'engagement',
+      link_text:leadLink.textContent.trim(),
+      link_url:leadLink.href,
+      transport_type:'beacon'
+    });
+  });
 
   document.addEventListener('visibilitychange',() => {
     if(!heroVideo) return;

@@ -41,3 +41,7 @@ No cPanel, acesse **Git Version Control**, clique em **Manage** e depois em
 Os CTAs usam o link rastreado `https://spar-hazel.vercel.app/l/biz-center-z43x`,
 que encaminha o visitante para o atendimento da Biz Center. O pixel de página
 é carregado por `https://spar-hazel.vercel.app/spar-track.js`.
+
+O rastreamento também inclui o container Google Tag Manager `GTM-TXFXNMHF`,
+o Google tag `GT-PBZHV5G` e a propriedade GA4 `G-1B8PRTN8Z8`. Cliques nos
+CTAs de atendimento disparam o evento recomendado `generate_lead` no GA4.
