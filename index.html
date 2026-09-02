@@ -245,7 +245,8 @@ ul,ol{list-style:none;margin:0;padding:0;}
 }
 .hero__media,.hero__media::after,.hero__poster,.hero__video{position:absolute;inset:0;}
 .hero__poster,.hero__video{width:100%;height:100%;object-fit:cover;object-position:center;}
-.hero__video{display:none;}
+.hero__video{display:block;opacity:0;transition:opacity .7s ease;}
+.hero__video.is-playing{opacity:1;}
 .hero__media::after{
   content:"";background:
     linear-gradient(180deg,rgba(18,4,7,.58) 0%,rgba(18,4,7,.16) 32%,rgba(18,4,7,.82) 100%),
@@ -460,7 +461,6 @@ ul,ol{list-style:none;margin:0;padding:0;}
   .brand img{width:58px;height:72px;}
   .nav{display:flex;}
   .hero{min-height:780px;}
-  .hero__video{display:block;}
   .hero__body{padding:180px 0 70px;}
   .hero__grid{grid-template-columns:minmax(0,1fr) 330px;gap:72px;}
   .hero h1{font-size:clamp(58px,5.5vw,76px);}
@@ -546,7 +546,8 @@ ul,ol{list-style:none;margin:0;padding:0;}
         <img class="hero__poster" src="assets/img/hero-recepcao.webp" width="2200" height="1239" alt="" fetchpriority="high" decoding="async">
       </picture>
       <video class="hero__video" muted loop playsinline preload="none" tabindex="-1">
-        <source data-src="assets/video/biz-center-hero-desktop.mp4" type="video/mp4">
+        <source data-src="assets/video/biz-center-hero-mobile.mp4" type="video/mp4" media="(max-width: 1023px)">
+        <source data-src="assets/video/biz-center-hero-desktop.mp4" type="video/mp4" media="(min-width: 1024px)">
       </video>
     </div>
     <div class="wrap hero__body">
@@ -843,7 +844,7 @@ ul,ol{list-style:none;margin:0;padding:0;}
 
   let videoLoaded=false;
   const loadHeroVideo=() => {
-    if(videoLoaded || reduceMotion.matches || !window.matchMedia('(min-width: 1024px)').matches || document.hidden) return;
+    if(videoLoaded || reduceMotion.matches || document.hidden) return;
     videoLoaded=true;
     heroVideo.querySelectorAll('source[data-src]').forEach(source => {
       source.src=source.dataset.src;
@@ -852,10 +853,12 @@ ul,ol{list-style:none;margin:0;padding:0;}
     heroVideo.load();
     heroVideo.play().catch(() => {});
   };
+  heroVideo.addEventListener('playing',() => heroVideo.classList.add('is-playing'),{once:true});
   ['pointermove','touchstart','keydown'].forEach(eventName => {
     window.addEventListener(eventName,loadHeroVideo,{once:true,passive:true});
   });
-  window.setTimeout(loadHeroVideo,12000);
+  if(document.readyState==='complete') window.setTimeout(loadHeroVideo,250);
+  else window.addEventListener('load',() => window.setTimeout(loadHeroVideo,250),{once:true});
 
   document.addEventListener('click',event => {
     const leadLink=event.target.closest('a[href*="spar-hazel.vercel.app/l/biz-center-z43x"]');

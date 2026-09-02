@@ -31,7 +31,7 @@ No cPanel, acesse **Git Version Control**, clique em **Manage** e depois em
 - Tipografia: Figtree
 - Cor institucional: tons de vinho
 - CTAs do WhatsApp com contraste acessível
-- Hero com poster AVIF responsivo e vídeo carregado sob demanda no desktop
+- Hero com poster AVIF responsivo e vídeos dedicados para mobile e desktop
 - Layout mobile first responsivo de celulares a telas ultrawide
 - Animações de entrada acessíveis, respeitando `prefers-reduced-motion`
 - Dados estruturados de negócio local, serviços e perguntas frequentes
