@@ -14,9 +14,16 @@ Landing page estática da Biz Center, coworking em Goiânia, com foco em agendam
 
 A página usa HTML, CSS e JavaScript sem etapa de build. A única dependência externa é a fonte Figtree, carregada pelo Google Fonts.
 
-## Publicação
+## Publicação no cPanel
 
-O projeto está preparado para ser publicado diretamente pelo GitHub Pages a partir da branch `main`.
+O projeto não possui etapa de build. O cPanel deve clonar a branch `main` em
+`/home1/celsoc43/repositories/lp-biz-center` e usar o arquivo `.cpanel.yml`
+para publicar `index.html` e `assets/` em
+`/home1/celsoc43/agende.bizcenter.com.br`.
+
+No cPanel, acesse **Git Version Control**, clique em **Manage** e depois em
+**Pull or Deploy**. Use **Update from Remote** e, em seguida,
+**Deploy HEAD Commit**.
 
 ## Identidade visual
 
