@@ -35,4 +35,6 @@ No cPanel, acesse **Git Version Control**, clique em **Manage** e depois em
 
 ## Contato configurado
 
-Os CTAs direcionam para o WhatsApp `+55 62 98251-8999`, com mensagem inicial preenchida automaticamente.
+Os CTAs usam o link rastreado `https://spar-hazel.vercel.app/l/biz-center-z43x`,
+que encaminha o visitante para o atendimento da Biz Center. O pixel de página
+é carregado por `https://spar-hazel.vercel.app/spar-track.js`.
