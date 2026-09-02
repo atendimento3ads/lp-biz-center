@@ -12,13 +12,14 @@ Landing page estática da Biz Center, coworking em Goiânia, com foco em agendam
     └── video/
 ```
 
-A página usa HTML, CSS e JavaScript sem etapa de build. A única dependência externa é a fonte Figtree, carregada pelo Google Fonts.
+A página usa HTML, CSS e JavaScript sem etapa de build. O layout segue mobile first e usa a pilha de fontes do sistema para eliminar recursos que bloqueiam a renderização.
 
 ## Publicação no cPanel
 
 O projeto não possui etapa de build. O cPanel deve clonar a branch `main` em
 `/home1/celsoc43/repositories/lp-biz-center` e usar o arquivo `.cpanel.yml`
-para publicar `index.html` e `assets/` em
+para publicar `index.html`, `assets/`, `sitemap.xml`, `robots.txt`, `llms.txt`
+e `llm.txt` em
 `/home1/celsoc43/agende.bizcenter.com.br`.
 
 No cPanel, acesse **Git Version Control**, clique em **Manage** e depois em
@@ -29,9 +30,11 @@ No cPanel, acesse **Git Version Control**, clique em **Manage** e depois em
 
 - Tipografia: Figtree
 - Cor institucional: tons de vinho
-- CTAs do WhatsApp: `#25D366`
-- Hero em vídeo com arquivos otimizados para desktop e dispositivos móveis
-- Layout responsivo para desktop e dispositivos móveis
+- CTAs do WhatsApp com contraste acessível
+- Hero com poster AVIF responsivo e vídeo carregado sob demanda no desktop
+- Layout mobile first responsivo de celulares a telas ultrawide
+- Animações de entrada acessíveis, respeitando `prefers-reduced-motion`
+- Dados estruturados de negócio local, serviços e perguntas frequentes
 
 ## Contato configurado
 

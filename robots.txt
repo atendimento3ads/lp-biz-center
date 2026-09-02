@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://agende.bizcenter.com.br/sitemap.xml
