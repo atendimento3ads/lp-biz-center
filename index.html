@@ -706,19 +706,19 @@ ul,ol{list-style:none;margin:0;padding:0;}
         <p class="section-lead">Se ainda faltar alguma informação, fale direto com a equipe.</p>
       </div>
       <div class="faq">
-        <details>
+        <details name="bizcenter-faq">
           <summary>Posso reservar só para uma reunião?</summary>
           <div class="faq__answer">Sim. Há opções de uso por período, conforme a disponibilidade da agenda.</div>
         </details>
-        <details>
+        <details name="bizcenter-faq">
           <summary>Posso receber meus clientes na Biz Center?</summary>
           <div class="faq__answer">Sim. As salas e a recepção são preparadas para atendimentos e reuniões profissionais.</div>
         </details>
-        <details>
+        <details name="bizcenter-faq">
           <summary>Preciso fechar contrato longo?</summary>
           <div class="faq__answer">Não. Você pode usar o espaço de forma pontual ou recorrente.</div>
         </details>
-        <details>
+        <details name="bizcenter-faq">
           <summary>Como vejo disponibilidade e valores?</summary>
           <div class="faq__answer">Chame no WhatsApp e diga o que procura. A equipe mostra as opções disponíveis.</div>
         </details>
@@ -793,6 +793,17 @@ ul,ol{list-style:none;margin:0;padding:0;}
   const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)');
   const heroVideo=document.querySelector('.hero__video');
   const progress=document.querySelector('.scroll-progress');
+  const faqItems=document.querySelectorAll('.faq details');
+
+  // Fallback para navegadores sem suporte ao agrupamento nativo por `name`.
+  faqItems.forEach(item => {
+    item.addEventListener('toggle',() => {
+      if(!item.open) return;
+      faqItems.forEach(otherItem => {
+        if(otherItem!==item) otherItem.open=false;
+      });
+    });
+  });
 
   const revealItems=document.querySelectorAll(
     '.header__bar, .hero__grid > *, .trust__item, .section-head > *, .space-card, ' +
