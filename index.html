@@ -3,33 +3,23 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- Google Tag Manager e Google tag: carregamento otimizado após interação -->
+<!-- Google Tag Manager -->
+<script>
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TXFXNMHF');
+</script>
+<!-- End Google Tag Manager -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=GT-PBZHV5G"></script>
 <script>
 window.dataLayer=window.dataLayer||[];
 function gtag(){dataLayer.push(arguments);}
-dataLayer.push({'gtm.start':Date.now(),event:'gtm.js'});
 gtag('js',new Date());
-gtag('config','G-1B8PRTN8Z8');
-(function(w,d){
-  let loaded=false;
-  function loadGoogleTracking(){
-    if(loaded) return;
-    loaded=true;
-    const gtm=d.createElement('script');
-    gtm.async=true;
-    gtm.src='https://www.googletagmanager.com/gtm.js?id=GTM-TXFXNMHF';
-    d.head.appendChild(gtm);
-    const googleTag=d.createElement('script');
-    googleTag.async=true;
-    googleTag.src='https://www.googletagmanager.com/gtag/js?id=GT-PBZHV5G';
-    d.head.appendChild(googleTag);
-  }
-  w.loadGoogleTracking=loadGoogleTracking;
-  ['pointerdown','touchstart','scroll','keydown'].forEach(eventName => {
-    w.addEventListener(eventName,loadGoogleTracking,{once:true,passive:true});
-  });
-  w.setTimeout(loadGoogleTracking,12000);
-})(window,document);
+// O page_view é enviado pelo container GTM, evitando contagem duplicada.
+gtag('config','GT-PBZHV5G',{send_page_view:false});
 </script>
 <title>Coworking em Goiânia e Salas por Hora | Biz Center</title>
 <meta name="description" content="Coworking em Goiânia, salas de reunião por hora, escritórios privativos e endereço comercial no Setor Sul. Conheça a Biz Center e agende uma visita.">
@@ -863,8 +853,6 @@ ul,ol{list-style:none;margin:0;padding:0;}
   document.addEventListener('click',event => {
     const leadLink=event.target.closest('a[href*="spar-hazel.vercel.app/l/biz-center-z43x"]');
     if(!leadLink) return;
-
-    if(typeof window.loadGoogleTracking==='function') window.loadGoogleTracking();
 
     const linkText=leadLink.textContent.trim() || leadLink.getAttribute('aria-label') || 'WhatsApp';
     const ctaLocation=leadLink.dataset.ctaLocation || 'nao-identificado';

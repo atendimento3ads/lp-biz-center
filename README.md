@@ -45,6 +45,8 @@ que encaminha o visitante para o atendimento da Biz Center. O pixel de página
 O rastreamento também inclui o container Google Tag Manager `GTM-TXFXNMHF`,
 o Google tag `GT-PBZHV5G` e a propriedade GA4 `G-1B8PRTN8Z8`. Cliques nos
 CTAs de atendimento disparam o evento recomendado `generate_lead` no GA4.
+O GTM e a Google tag são carregados imediatamente no `<head>` pelos snippets
+oficiais, sem depender de rolagem, clique ou temporizador para serem detectados.
 
 ## Contrato dos eventos de conversão
 
