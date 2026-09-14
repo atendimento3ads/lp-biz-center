@@ -45,3 +45,17 @@ que encaminha o visitante para o atendimento da Biz Center. O pixel de página
 O rastreamento também inclui o container Google Tag Manager `GTM-TXFXNMHF`,
 o Google tag `GT-PBZHV5G` e a propriedade GA4 `G-1B8PRTN8Z8`. Cliques nos
 CTAs de atendimento disparam o evento recomendado `generate_lead` no GA4.
+
+## Contrato dos eventos de conversão
+
+Todo clique em um CTA rastreado emite dois sinais com o mesmo `event_id`:
+
+- evento GA4 `generate_lead`;
+- evento personalizado `bizcenter_generate_lead` no `dataLayer`.
+
+Os dois sinais incluem `link_text`, `link_url` e `cta_location`. No GTM, o
+gatilho das tags de Google Ads e demais plataformas deve ser um **Evento
+personalizado** cujo nome seja exatamente `bizcenter_generate_lead`. O gatilho
+não deve depender do domínio do redirecionador (`spar-hazel.vercel.app`,
+`tintim.link` ou outro), pois essa integração pode mudar sem que a intenção do
+clique mude.
