@@ -47,6 +47,11 @@ que encaminha o visitante para o atendimento da Biz Center. O pixel de página
 é carregado uma única vez por `https://spar-hazel.vercel.app/spar-track.js`,
 somente após a autorização de medição.
 
+O Microsoft Clarity `ymx3kkmion` também é carregado somente após essa
+autorização e recebe o estado pela API `consentv2`. A recusa ou revogação
+mantém o script bloqueado ou comunica o estado negado quando ele já estiver
+ativo na página.
+
 O rastreamento controlado pela página usa o Google tag `GT-PBZHV5G`, a
 propriedade GA4 `G-1B8PRTN8Z8`, Google Ads `AW-1002739716` e a conversão
 `AW-18284269276/awIJCJmN_NAcENydz45E`. O Consent Mode v2 é inicializado antes
