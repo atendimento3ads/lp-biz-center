@@ -3,24 +3,36 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- Google Tag Manager -->
-<script>
-(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-TXFXNMHF');
-</script>
-<!-- End Google Tag Manager -->
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=GT-PBZHV5G"></script>
+<!-- Consent Mode v2: o estado padrão é definido antes de qualquer tag Google. -->
 <script>
 window.dataLayer=window.dataLayer||[];
 function gtag(){dataLayer.push(arguments);}
-gtag('js',new Date());
-// O page_view é enviado pelo container GTM, evitando contagem duplicada.
-gtag('config','GT-PBZHV5G',{send_page_view:false});
+(function(){
+  const key='bizcenter_consent_v1';
+  let choice=null;
+  try{choice=localStorage.getItem(key);}catch(error){}
+  const granted=choice==='granted';
+  const state=granted?'granted':'denied';
+  window.bizCenterConsent={key,choice};
+  gtag('consent','default',{
+    ad_storage:state,
+    analytics_storage:state,
+    ad_user_data:state,
+    ad_personalization:state,
+    functionality_storage:'granted',
+    security_storage:'granted',
+    wait_for_update:500
+  });
+  gtag('set','ads_data_redaction',true);
+  gtag('js',new Date());
+  gtag('config','G-1B8PRTN8Z8');
+  gtag('config','AW-1002739716');
+  gtag('config','AW-18284269276',{send_page_view:false});
+  document.documentElement.classList.add('js');
+})();
 </script>
+<!-- Google tag GT-PBZHV5G, vinculado ao GA4 G-1B8PRTN8Z8. -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=GT-PBZHV5G"></script>
 <title>Coworking em Goiânia e Salas por Hora | Biz Center</title>
 <meta name="description" content="Coworking em Goiânia, salas de reunião por hora, escritórios privativos e endereço comercial no Setor Sul. Conheça a Biz Center e agende uma visita.">
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
@@ -43,10 +55,9 @@ gtag('config','GT-PBZHV5G',{send_page_view:false});
 <meta name="twitter:description" content="Estrutura profissional pronta no Setor Sul de Goiânia. Consulte salas e agende uma visita.">
 <meta name="twitter:image" content="https://agende.bizcenter.com.br/assets/img/hero-recepcao.webp">
 <link rel="canonical" href="https://agende.bizcenter.com.br/">
+<link rel="privacy-policy" href="https://agende.bizcenter.com.br/politica-de-privacidade.html">
 <link rel="icon" href="assets/img/logo-biz-center.svg">
-<link rel="preconnect" href="https://spar-hazel.vercel.app" crossorigin>
 <link rel="preload" as="image" type="image/avif" href="assets/img/hero-recepcao-768.avif" imagesrcset="assets/img/hero-recepcao-768.avif 768w, assets/img/hero-recepcao-1440.avif 1440w, assets/img/hero-recepcao-2200.avif 2200w" imagesizes="100vw" fetchpriority="high">
-<script>document.documentElement.classList.add('js');</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -158,6 +169,7 @@ gtag('config','GT-PBZHV5G',{send_page_view:false});
   --font:"Figtree",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
 }
 *,*::before,*::after{box-sizing:border-box;}
+[hidden]{display:none!important;}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
 body{
   margin:0;padding-bottom:70px;background:var(--white);color:var(--ink);
@@ -178,7 +190,6 @@ ul,ol{list-style:none;margin:0;padding:0;}
   transform:translateY(-160%);transition:transform .2s ease;
 }
 .skip-link:focus{transform:translateY(0);}
-.gtm-noscript{display:none;visibility:hidden;}
 .scroll-progress{
   position:fixed;inset:0 0 auto;z-index:90;height:3px;
   background:var(--coral);transform:scaleX(0);transform-origin:left;
@@ -213,6 +224,7 @@ ul,ol{list-style:none;margin:0;padding:0;}
 }
 .btn--small{min-height:48px;padding:11px 18px;font-size:13px;}
 .btn--small::before{width:17px;height:17px;}
+.btn--secondary{border-color:var(--line);background:#fff;color:var(--ink);box-shadow:none;}
 .text-link{
   display:inline-flex;align-items:center;gap:10px;padding:10px 0;
   color:var(--wine);font-weight:700;
@@ -354,15 +366,39 @@ ul,ol{list-style:none;margin:0;padding:0;}
 .location__address{display:block;margin-top:16px;color:var(--wine);font-style:normal;font-weight:700;}
 .location-map{width:100%;height:390px;background:#E9E5E6;}
 .location-map iframe{display:block;width:100%;height:100%;border:0;filter:saturate(.86) contrast(.98);}
+.location-map__placeholder{
+  width:100%;height:100%;display:grid;place-items:center;padding:28px;
+  background:linear-gradient(135deg,#E9E5E6,#F7F3F4);text-align:center;
+}
+.location-map__placeholder>div{max-width:520px;}
+.location-map__placeholder p{margin-bottom:18px;color:var(--text);}
 
 .footer{padding:54px 0 94px;background:#19070B;color:rgba(255,255,255,.74);}
 .footer__top,.footer__bottom{display:flex;flex-direction:column;align-items:center;text-align:center;}
 .footer__top{gap:28px;padding-bottom:32px;border-bottom:1px solid rgba(255,255,255,.12);}
 .footer__brand{width:54px;height:68px;object-fit:contain;}
 .footer__contact{display:flex;flex-direction:column;gap:12px;font-size:14px;}
-.footer__bottom{gap:12px;padding-top:24px;color:rgba(255,255,255,.64);font-size:12.5px;}
+.footer__bottom{flex-wrap:wrap;gap:12px;padding-top:24px;color:rgba(255,255,255,.64);font-size:12.5px;}
 .footer__credit,.footer__credit a{color:rgba(255,255,255,.82);}
 .footer__credit a{text-decoration:underline;text-underline-offset:3px;}
+.footer__legal{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 18px;}
+.footer__legal a,.footer__privacy{
+  padding:0;border:0;background:transparent;color:rgba(255,255,255,.82);
+  font:inherit;text-decoration:underline;text-underline-offset:3px;cursor:pointer;
+}
+
+.consent-banner{
+  position:fixed;z-index:100;right:12px;bottom:78px;left:12px;
+  padding:20px;background:#fff;border:1px solid var(--line);
+  box-shadow:0 24px 70px -24px rgba(36,16,22,.5);
+}
+.consent-banner__inner{max-width:980px;margin:auto;}
+.consent-banner h2{font-size:22px;}
+.consent-banner p{margin-top:9px;color:var(--text);font-size:14px;line-height:1.55;}
+.consent-banner a{color:var(--wine);font-weight:700;text-decoration:underline;text-underline-offset:3px;}
+.consent-banner__actions{display:grid;gap:10px;margin-top:18px;}
+.consent-banner .btn{width:100%;min-height:48px;font-size:14px;}
+.consent-banner .btn--wa::before{display:none;}
 
 .wa-float{display:none;}
 .mobile-bar{
@@ -434,7 +470,12 @@ ul,ol{list-style:none;margin:0;padding:0;}
   .footer__top{flex-direction:row;justify-content:space-between;gap:36px;text-align:left;}
   .footer__contact{align-items:flex-end;}
   .footer__bottom{flex-direction:row;justify-content:space-between;gap:30px;text-align:left;}
+  .footer__legal{justify-content:flex-start;}
   .footer__credit{margin-left:auto;}
+  .consent-banner{right:22px;bottom:22px;left:22px;padding:22px 24px;}
+  .consent-banner__inner{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:30px;}
+  .consent-banner__actions{grid-template-columns:auto auto;margin-top:0;}
+  .consent-banner .btn{width:auto;white-space:nowrap;}
   .wa-float{
     position:fixed;right:22px;bottom:22px;z-index:50;
     width:60px;height:60px;border-radius:50%;display:grid;place-items:center;
@@ -505,10 +546,6 @@ ul,ol{list-style:none;margin:0;padding:0;}
 </style>
 </head>
 <body>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe class="gtm-noscript" src="https://www.googletagmanager.com/ns.html?id=GTM-TXFXNMHF" height="0" width="0" title="Google Tag Manager"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-
 <a class="skip-link" href="#conteudo">Ir para o conteúdo principal</a>
 <div class="scroll-progress" aria-hidden="true"></div>
 
@@ -749,13 +786,20 @@ ul,ol{list-style:none;margin:0;padding:0;}
       <address class="location__address">Rua 119, nº 64 · Setor Sul · Goiânia, GO · CEP 74085-420</address>
     </div>
     <div class="location-map">
+      <div class="location-map__placeholder" data-map-placeholder>
+        <div>
+          <p>O mapa do Google só é carregado quando você solicitar, evitando conexão de terceiros antes da sua escolha.</p>
+          <button class="btn btn--secondary" type="button" data-load-map>Carregar mapa</button>
+        </div>
+      </div>
       <iframe
-        src="https://www.google.com/maps?q=Rua%20119%2C%2064%20-%20Setor%20Sul%2C%20Goi%C3%A2nia%20-%20GO%2C%2074085-420&amp;output=embed"
+        data-src="https://www.google.com/maps?q=Rua%20119%2C%2064%20-%20Setor%20Sul%2C%20Goi%C3%A2nia%20-%20GO%2C%2074085-420&amp;output=embed"
         width="600"
         height="450"
         title="Mapa com a localização da Biz Center no Setor Sul de Goiânia"
         loading="lazy"
         referrerpolicy="no-referrer-when-downgrade"
+        hidden
         allowfullscreen>
       </iframe>
     </div>
@@ -768,13 +812,17 @@ ul,ol{list-style:none;margin:0;padding:0;}
       <img class="footer__brand" src="assets/img/logo-biz-center-branca.png" width="246" height="311" alt="Biz Center" loading="lazy" decoding="async">
       <div class="footer__contact">
         <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Rua%20119%2C%2064%2C%20Setor%20Sul%2C%20Goi%C3%A2nia%20-%20GO%2C%2074085-420" target="_blank" rel="noopener">Rua 119, nº 64 · Setor Sul · Goiânia - GO</a>
-        <a href="https://wa.me/5562982518999" target="_blank" rel="noopener">WhatsApp: 62 98251-8999</a>
+        <a href="https://wa.me/5562982518999" target="_blank" rel="noopener" data-cta-location="rodape">WhatsApp: 62 98251-8999</a>
         <a href="mailto:contato@bizcenter.com.br">contato@bizcenter.com.br</a>
       </div>
     </div>
     <div class="footer__bottom">
       <span>Biz Center · Coworking em Goiânia</span>
       <span>Copyright 2026 · Todos os direitos reservados</span>
+      <span class="footer__legal">
+        <a href="politica-de-privacidade.html">Política de privacidade</a>
+        <button class="footer__privacy" type="button" data-consent-settings>Preferências de privacidade</button>
+      </span>
       <span class="footer__credit">Desenvolvido por <a href="https://3ads.com.br/" target="_blank" rel="noopener noreferrer" aria-label="Visitar o site da 3ADS em uma nova aba">3ADS</a></span>
     </div>
   </div>
@@ -788,12 +836,80 @@ ul,ol{list-style:none;margin:0;padding:0;}
   <a class="btn btn--wa" href="https://spar-hazel.vercel.app/l/biz-center-z43x" target="_blank" rel="noopener" data-cta-location="barra-mobile">Ver salas no WhatsApp</a>
 </div>
 
+<aside class="consent-banner" data-consent-banner role="dialog" aria-modal="false" aria-labelledby="consent-title" hidden>
+  <div class="consent-banner__inner">
+    <div>
+      <h2 id="consent-title">Privacidade e cookies</h2>
+      <p>Usamos armazenamento necessário para lembrar sua escolha. Com sua autorização, ativamos medição de audiência e anúncios pelo Google e o rastreamento de origem da Spar. Saiba mais na <a href="politica-de-privacidade.html">Política de privacidade</a>.</p>
+    </div>
+    <div class="consent-banner__actions">
+      <button class="btn btn--secondary" type="button" data-consent-choice="denied">Somente necessários</button>
+      <button class="btn btn--wa" type="button" data-consent-choice="granted">Aceitar medição</button>
+    </div>
+  </div>
+</aside>
+
 <script>
 (() => {
   const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)');
   const heroVideo=document.querySelector('.hero__video');
   const progress=document.querySelector('.scroll-progress');
   const faqItems=document.querySelectorAll('.faq details');
+  const consentBanner=document.querySelector('[data-consent-banner]');
+  const consentButtons=document.querySelectorAll('[data-consent-choice]');
+  const consentSettings=document.querySelectorAll('[data-consent-settings]');
+  const consentState=window.bizCenterConsent||{key:'bizcenter_consent_v1',choice:null};
+  let sparLoaded=false;
+
+  const loadSpar=() => {
+    if(sparLoaded || document.querySelector('script[src="https://spar-hazel.vercel.app/spar-track.js"]')) return;
+    sparLoaded=true;
+    const script=document.createElement('script');
+    script.src='https://spar-hazel.vercel.app/spar-track.js';
+    script.async=true;
+    script.dataset.trackingVendor='spar';
+    document.head.appendChild(script);
+  };
+
+  const clearOptionalCookies=() => {
+    document.cookie.split(';').forEach(cookie => {
+      const name=cookie.split('=')[0].trim();
+      if(!/^(_ga|_gcl|_fbp|_fbc)/.test(name)) return;
+      document.cookie=`${name}=; Max-Age=0; path=/; SameSite=Lax`;
+      document.cookie=`${name}=; Max-Age=0; path=/; domain=.bizcenter.com.br; SameSite=Lax`;
+    });
+  };
+
+  const updateConsent=choice => {
+    const granted=choice==='granted';
+    const state=granted?'granted':'denied';
+    if(typeof window.gtag==='function'){
+      window.gtag('consent','update',{
+        ad_storage:state,
+        analytics_storage:state,
+        ad_user_data:state,
+        ad_personalization:state
+      });
+    }
+    try{localStorage.setItem(consentState.key,choice);}catch(error){}
+    consentState.choice=choice;
+    consentBanner.hidden=true;
+    if(granted) loadSpar();
+    else clearOptionalCookies();
+  };
+
+  consentButtons.forEach(button => {
+    button.addEventListener('click',() => updateConsent(button.dataset.consentChoice));
+  });
+  consentSettings.forEach(button => {
+    button.addEventListener('click',() => {
+      consentBanner.hidden=false;
+      consentBanner.querySelector('[data-consent-choice="granted"]').focus();
+    });
+  });
+  if(consentState.choice==='granted') loadSpar();
+  else if(consentState.choice!=='denied') consentBanner.hidden=false;
+  if(window.location.hash==='#privacidade') consentBanner.hidden=false;
 
   // Fallback para navegadores sem suporte ao agrupamento nativo por `name`.
   faqItems.forEach(item => {
@@ -858,21 +974,42 @@ ul,ol{list-style:none;margin:0;padding:0;}
   ['pointermove','touchstart','keydown'].forEach(eventName => {
     window.addEventListener(eventName,loadHeroVideo,{once:true,passive:true});
   });
-  if(document.readyState==='complete') window.setTimeout(loadHeroVideo,250);
-  else window.addEventListener('load',() => window.setTimeout(loadHeroVideo,250),{once:true});
+  const scheduleHeroVideo=() => {
+    if('requestIdleCallback' in window) window.requestIdleCallback(loadHeroVideo,{timeout:3500});
+    else window.setTimeout(loadHeroVideo,2200);
+  };
+  if(document.readyState==='complete') scheduleHeroVideo();
+  else window.addEventListener('load',scheduleHeroVideo,{once:true});
+
+  const mapFrame=document.querySelector('.location-map iframe[data-src]');
+  const mapPlaceholder=document.querySelector('[data-map-placeholder]');
+  const mapButton=document.querySelector('[data-load-map]');
+  if(mapFrame && mapPlaceholder && mapButton){
+    mapButton.addEventListener('click',() => {
+      mapFrame.src=mapFrame.dataset.src;
+      mapFrame.hidden=false;
+      mapPlaceholder.hidden=true;
+    },{once:true});
+  }
 
   document.addEventListener('click',event => {
-    const leadLink=event.target.closest('a[href*="spar-hazel.vercel.app/l/biz-center-z43x"]');
+    const leadLink=event.target.closest('a[data-cta-location]');
     if(!leadLink) return;
 
+    const now=Date.now();
+    const previous=Number(leadLink.dataset.lastTrack||0);
+    if(now-previous<1200) return;
+    leadLink.dataset.lastTrack=String(now);
     const linkText=leadLink.textContent.trim() || leadLink.getAttribute('aria-label') || 'WhatsApp';
     const ctaLocation=leadLink.dataset.ctaLocation || 'nao-identificado';
-    const eventId=`bizcenter-${Date.now()}-${Math.random().toString(36).slice(2,9)}`;
+    const eventId=`bizcenter-${now}-${Math.random().toString(36).slice(2,9)}`;
+    let linkDomain='';
+    try{linkDomain=new URL(leadLink.href).hostname;}catch(error){}
     const eventParams={
       event_id:eventId,
       event_category:'engagement',
       link_text:linkText,
-      link_url:leadLink.href,
+      link_domain:linkDomain,
       cta_location:ctaLocation,
       transport_type:'beacon'
     };
@@ -884,7 +1021,13 @@ ul,ol{list-style:none;margin:0;padding:0;}
     });
 
     if(typeof window.gtag==='function'){
-      window.gtag('event','generate_lead',eventParams);
+      window.gtag('event','generate_lead',{...eventParams,send_to:'G-1B8PRTN8Z8'});
+      window.gtag('event','conversion',{
+        send_to:'AW-18284269276/awIJCJmN_NAcENydz45E',
+        transaction_id:eventId,
+        event_callback:() => {},
+        event_timeout:1600
+      });
     }
   });
 
@@ -895,6 +1038,5 @@ ul,ol{list-style:none;margin:0;padding:0;}
   });
 })();
 </script>
-<script src="https://spar-hazel.vercel.app/spar-track.js" defer></script>
 </body>
 </html>

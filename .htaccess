@@ -1,0 +1,46 @@
+Options -Indexes
+DirectoryIndex index.html
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  RewriteCond %{THE_REQUEST} "\s/+index\.html(?:[?\s])" [NC]
+  RewriteRule ^index\.html$ https://agende.bizcenter.com.br/ [R=301,L,NE]
+
+  RewriteCond %{HTTPS} !=on [OR]
+  RewriteCond %{HTTP_HOST} !^agende\.bizcenter\.com\.br$ [NC]
+  RewriteRule ^ https://agende.bizcenter.com.br%{REQUEST_URI} [R=301,L,NE]
+</IfModule>
+
+<FilesMatch "^\.(?!well-known)">
+  Require all denied
+</FilesMatch>
+
+<FilesMatch "\.(?:php[0-9]?|phtml|phar|cgi|pl|py|sh)$">
+  Require all denied
+</FilesMatch>
+
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "DENY"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "accelerometer=(), camera=(), geolocation=(), gyroscope=(), microphone=(), payment=(), usb=()"
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+  Header always set Cross-Origin-Opener-Policy "same-origin-allow-popups"
+
+# CSP-GENERATED-BEGIN
+  Header always set Content-Security-Policy "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'self'; script-src 'self' https://www.googletagmanager.com https://tagmanager.google.com https://spar-hazel.vercel.app 'sha256-9dtXDgS17JF+aXvWTcPxv1GUJxsdFhObqBlkrpDbcy8=' 'sha256-tPoBbm+NlwK1K3ZLNxnuSrNhB24m6S9ExBWKaVvky1A=' 'sha256-6YlyERObfYael8lVNSLjLN7j/WMf0RZDRcxBJ8h9D/Y='; script-src-attr 'none'; style-src 'self' https://tagmanager.google.com https://fonts.googleapis.com 'sha256-VeHsjLmc6posgfBEr5rxQjcl0FAy3P8EMNWSz0Wu/r8=' 'sha256-n/S1FQybX7wBJFWB1iOgvwcklc4tMG/71z6lRCWq2nw='; style-src-attr 'unsafe-inline'; connect-src 'self' https://www.googletagmanager.com https://*.google-analytics.com https://*.google.com https://*.google.com.br https://www.googleadservices.com https://googleads.g.doubleclick.net https://pagead2.googlesyndication.com https://spar-hazel.vercel.app https://tagassistant.google.com; img-src 'self' data: https://www.googletagmanager.com https://*.google-analytics.com https://*.google.com https://*.google.com.br https://*.g.doubleclick.net https://www.googleadservices.com https://pagead2.googlesyndication.com https://ssl.gstatic.com https://www.gstatic.com https://spar-hazel.vercel.app; frame-src https://www.google.com https://www.googletagmanager.com https://tagassistant.google.com https://*.doubleclick.net; font-src 'self' data: https://fonts.gstatic.com; media-src 'self'; manifest-src 'self'; worker-src 'self' blob:; upgrade-insecure-requests;"
+# CSP-GENERATED-END
+
+  <FilesMatch "\.(?:html?|xml|txt)$">
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+  </FilesMatch>
+
+  <FilesMatch "\.(?:avif|webp|jpe?g|png|svg|ico|mp4)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+</IfModule>
+
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/css text/javascript application/javascript application/json application/ld+json application/xml image/svg+xml
+</IfModule>
