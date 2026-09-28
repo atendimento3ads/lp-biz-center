@@ -58,11 +58,13 @@ propriedade GA4 `G-1B8PRTN8Z8`, Google Ads `AW-1002739716` e a conversão
 da Google tag, com análise e publicidade negadas por padrão. A escolha fica
 armazenada localmente em `bizcenter_consent_v1`.
 
-O container `GTM-TXFXNMHF` não é carregado pela LP. A versão pública auditada
-em 23/09/2026 continha tags Custom HTML e configurações de outros clientes,
-incluindo uma segunda carga do Spar, Meta/CAPI, Clarity e domínios externos não
-relacionados à Biz Center. O container só deve ser reativado depois de ganhar
-uma versão exclusiva e revisada para este domínio.
+O container `GTM-TXFXNMHF` voltou a ser carregado pelo snippet oficial em
+28/09/2026, após solicitação expressa. O Consent Mode é inicializado antes do
+GTM. A versão pública auditada nessa data ainda continha tags Custom HTML e
+configurações de outros clientes, incluindo novas cargas do Spar e Clarity,
+Meta/CAPI e domínios externos não relacionados à Biz Center. A CSP continua
+bloqueando origens não autorizadas, mas o container precisa de uma versão
+exclusiva e revisada para eliminar duplicidades e avisos de bloqueio.
 
 ## Contrato dos eventos de conversão
 
